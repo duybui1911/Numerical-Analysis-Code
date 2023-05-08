@@ -19,7 +19,7 @@ def symmetry_df(x):
 
 
 
-def mygradient_descent_with_motionless_eta(a, b):
+def gradient_descent(a, b):
     x_ct = a
     count = 1
     while (not (abs(df(x_ct)) < delta)):
@@ -36,7 +36,7 @@ def mygradient_descent_with_motionless_eta(a, b):
     return x_ct
 
 
-def mygradient_descent_with_motionless_eta_symmetry(a, b):
+def gradient_descent_symmetry(a, b):
     x_cd = a
     count = 0
     while (not (abs(symmetry_df(x_cd)) < delta)):
@@ -57,8 +57,8 @@ def find_Extreme_of_theFuntion(a, b):
     global count1
     global count2
     while True:
-        temp1 = mygradient_descent_with_motionless_eta(a, b)
-        temp2 = mygradient_descent_with_motionless_eta_symmetry(a, b)
+        temp1 = gradient_descent(a, b)
+        temp2 = gradient_descent_symmetry(a, b)
         if (temp1 > b and temp2 < a) or (temp1 < a and temp2 > b):
             break
         if (temp1 > a) and (temp1 < b):

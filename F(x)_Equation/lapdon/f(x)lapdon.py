@@ -43,7 +43,7 @@ def menu():
     print("")
 
 
-def mygradient_descent_with_motionless_eta(a, b, sign):
+def gradient_descent(a, b, sign):
     x_ct = a
     x_new = x_ct - sign * eta * d2g(x_ct)
     count = 1
@@ -66,8 +66,8 @@ def find_Extreme_of_theFuntion(left, right):
     count = 2
     extreme = [left, right]
     while True:
-        temp1 = mygradient_descent_with_motionless_eta(left, right, 1)
-        temp2 = mygradient_descent_with_motionless_eta(left, right, -1)
+        temp1 = gradient_descent(left, right, 1)
+        temp2 = gradient_descent(left, right, -1)
         if (temp1 > right and temp2 < left) or (temp1 < left and temp2 > right):
             break
         if (temp1 > left) and (temp1 < right):
