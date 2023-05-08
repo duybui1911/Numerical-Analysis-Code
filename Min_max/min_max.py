@@ -1,4 +1,7 @@
-import numpy as np
+#Nhập khoảng tìm cực đại, cực tiểu của hàm số
+a = 1 #cận trái
+b = 2 #cận phải
+
 
 delta = 1e-7
 eta = 1e-4
@@ -79,7 +82,6 @@ if __name__ == '__main__':
     count2: int = 2
     x_ct = [a, b]
     x_cd = [a, b]
-    # Gọi hàm tìm cực trị
     find_Extreme_of_theFuntion(a, b)
     # Tìm min của hàm số:
     x_min = a
