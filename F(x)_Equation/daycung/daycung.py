@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #Thay đổi khoảng vẽ đồ thị tại đây
-left = 1
-right = 2
+left = -5
+right = 5
 
 num_decimal = 7  # Số chữ số thập phân xuất hiện trong output
 
@@ -12,6 +12,7 @@ delta = 1e-6
 MAXLOOP = 1e+6  # Số lần lặp tối đa cho đỡ vướng vào cái lặp vô hạn thôi
 eta = 1e-2
 
+#Phương trình f(x) = 0
 def f(x):
     return x**5 + 2*x - 30
 
@@ -29,9 +30,9 @@ def dnf(x, deg):
         return d2f(x)
 
 def show_fx():
-    plt.xlabel("Giá trị x biến thiên")
-    plt.ylabel("Giá trị y biến thiên")
-    plt.title("Đồ thị hàm số của phương trình f(x) ")
+    plt.xlabel("y")
+    plt.ylabel("x")
+    plt.title("y = f(x) ")
     x = np.linspace(left, right, 1000)
     plt.plot(x, f(x))
     plt.plot(0, 0, '+')

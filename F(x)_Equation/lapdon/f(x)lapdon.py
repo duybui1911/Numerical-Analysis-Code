@@ -141,6 +141,7 @@ def lapdon(x0, q, num):
 
 if __name__ == "__main__":
     q = 1.0
+    print("Nhập khoảng tìm nghiệm: ")
     a = float(input("Nhập a: "))
     b = float(input("Nhập b: "))
     eps = float(input("Nhập sai số: "))

@@ -3,9 +3,6 @@ import math
 import matplotlib.pyplot as plt
 from numpy.lib import scimath
 
-#Thay đổi khoảng tìm nghiệm:
-a = 4.823
-b = 8.5
 #Thay đổi khoảng vẽ đồ thị tại đây
 left = 0
 right = 8
@@ -16,18 +13,6 @@ num_decimal = 10   #Số chữ số thập phân hiển thị
 #Nhập phương trình cần giải
 def f(x):
     return 2*x**5 - 12*x**4 + 3*x**2 - 15
-
-def show_fx():
-    plt.xlabel("Giá trị x biến thiên")
-    plt.ylabel("Giá trị y biến thiên")
-    plt.title("Đồ thị hàm số của phương trình f(x) ")
-    x = np.linspace(left, right, 1000)
-    plt.plot(x, f(x))
-    plt.plot(0, 0, '+')
-    plt.plot(0, )
-    plt.grid()
-    plt.show()
-
 
 def sign_f(x):
     if f(x) < 0:
@@ -79,9 +64,10 @@ def tien_nghiem(a, b):
 
 
 if __name__ == "__main__":
-    show_fx()
     x0: float
     print("Nhập khoảng tìm nghiệm: ")
+    a = float(input("Nhập a: "))
+    b = float(input("Nhập b: "))
     eps = float(input("Nhập sai số: "))
     print()
     if checkInput(a, b) == 1:
