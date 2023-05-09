@@ -1,10 +1,10 @@
-import numpy as np  # Sử dụng thư viện Numpy (xử lý ma trận) với cách gọi ngắn là np
+import numpy as np 
 
 class Gauss_Jordan_Algorithms:
-    np.set_printoptions(suppress=True, linewidth=np.inf, precision=10)  # Căn chỉnh ma trận in ra trên màn hình
+    np.set_printoptions(suppress=True, linewidth=np.inf, precision=10)
 
 
-    matrix = np.genfromtxt('GJ_input.txt', delimiter=' ')  # Đọc ma trận input từ file
+    matrix = np.genfromtxt('GJ_input.txt', delimiter=' ') 
     index_row = []  # Khởi tạo mảng lưu các hàng của phần tử giải (theo thứ tự)
     index_column = []  # Khởi tạo mảng lưu các cột của phần tử giải (theo thứ tự)
     result = np.zeros(
