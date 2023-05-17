@@ -1,5 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import math
+#import matplotlib.pyplot as plt
 
 #Thay đổi khoảng vẽ đồ thị tại đây
 left = -10 
@@ -7,13 +8,13 @@ right = 10
 
 num_decimal = 7  # Số chữ số thập phân xuất hiện trong output
 
-delta = 1e-6     #dùng để xấp xỉ đạo hàm hai phía
-MAXLOOP = 1e+7  # Số lần lặp tối đa
-eta = 1e-2
+delta = 1e-7    #dùng để xấp xỉ đạo hàm hai phía
+MAXLOOP = 1e+7 # Số lần lặp tối đa
+eta = 1e-3
 
 
 def f(x):
-    return x*x+2.2*np.sqrt(x)-4.1
+    return math.log(x) - 1
 
 
 def df(x):
@@ -32,7 +33,7 @@ def dnf(x, deg):
     elif deg == 3:
         return (d2f(x + delta) - d2f(x - delta)) / (2 * delta)
 
-
+'''
 def show_fx():
     plt.xlabel("Giá trị x biến thiên")
     plt.ylabel("Giá trị y biến thiên")
@@ -43,7 +44,7 @@ def show_fx():
     plt.plot(0, )
     plt.grid()
     plt.show()
-
+'''
 
 def menu():
     print("")
@@ -83,13 +84,13 @@ def find_Extreme_of_theFuntion(left, right, deg):
             break
         if (temp1 > left) and (temp1 < right):
             extreme.append(temp1)
-            left = extreme[count] + 0.05
+            left = extreme[count] + 0.1
             count += 1
 
         if (temp2 > left):
             if (temp2 < right):
                 extreme.append(temp2)
-                left = extreme[count] + 0.05
+                left = extreme[count] + 0.1
                 count += 1
     if count > 2 and deg == 1:
         print("Hàm số tồn tại cực trị:", extreme[2:], "trên", extreme[0], ",", extreme[1], "]")
@@ -156,7 +157,7 @@ if __name__ == "__main__":
     b = float(input("Nhập b: "))
     eps = float(input("Nhập sai số: "))
     print()
-   # show_fx(a, b)
+    # show_fx(a, b)
     check = check_input(a, b)
     if not check:
         print("Kiểm tra lại INPUT")
@@ -164,16 +165,17 @@ if __name__ == "__main__":
         menu()
         choose = int(input("Nhập lựa chọn: "))
         if choose == 1:
-            fout = open("output_tn.txt", mode='w', encoding='utf-8')
+            fout = open("D:\\TLHT\\GTS-PPS\\codepython\\Tucode\GTS\\Numerical-Analysis-Code\\F(x)_Equation\\tieptuyen\\output_tn.txt", mode='w', encoding='utf-8')
             x0 = tieptuyen(a, b, 1)
             print("Nghiệm của phương trình: ", x0[0])
             print("Số lần lặp: ", x0[1])
             fout.write(f"\nNghiệm của phương trình: {x0[0]}")
             fout.close()
         elif choose == 2:
-            fout = open("output_hn.txt", mode='w', encoding='utf-8')
+            fout = open("D:\\TLHT\\GTS-PPS\\codepython\\Tucode\GTS\\Numerical-Analysis-Code\\F(x)_Equation\\tieptuyen\\output_hn.txt", mode='w', encoding='utf-8')
             x0 = tieptuyen(a, b, 2)
             print("Nghiệm của phương trình: ", x0[0])
             print("Số lần lặp: ", x0[1])
             fout.write(f"\nNghiệm của phương trình: {x0[0]}")
             fout.close()
+        

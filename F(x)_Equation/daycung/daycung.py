@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #Thay đổi khoảng vẽ đồ thị tại đây
 left = -5
@@ -14,7 +14,7 @@ eta = 1e-2
 
 #Phương trình f(x) = 0
 def f(x):
-    return x**5 + 2*x - 30
+    return np.log(x)-1
 
 
 def df(x):
@@ -29,6 +29,7 @@ def dnf(x, deg):
     elif deg == 2:
         return d2f(x)
 
+'''
 def show_fx():
     plt.xlabel("y")
     plt.ylabel("x")
@@ -39,6 +40,7 @@ def show_fx():
     plt.plot(0, )
     plt.grid()
     plt.show()
+'''
 
 def menu():
     print("")
@@ -135,7 +137,7 @@ def daycung(left, right, num):
 
 
 if __name__ == "__main__":
-    show_fx()
+    #show_fx()
     print("Nhập khoảng tìm nghiệm: ")
     a = float(input("Nhập a: "))
     b = float(input("Nhập b: "))
@@ -148,14 +150,14 @@ if __name__ == "__main__":
         menu()
         choose = int(input("Nhập lựa chọn: "))
         if choose == 1:
-            fout = open("output_tn.txt", mode='w', encoding='utf-8')
+            fout = open("D:\\TLHT\\GTS-PPS\\codepython\\Tucode\GTS\\Numerical-Analysis-Code\\F(x)_Equation\\daycung\\output_tn.txt", mode='w', encoding='utf-8')
             x0 = daycung(a, b, 1)
             print("Nghiệm của phương trình: ", x0[0])
             print("Số lần lặp: ", x0[1])
             fout.write(f"\nNghiệm của phương trình: {x0[0]}")
             fout.close()
         elif choose == 2:
-            fout = open("output_hn.txt", mode='w', encoding='utf-8')
+            fout = open("D:\\TLHT\\GTS-PPS\\codepython\\Tucode\GTS\\Numerical-Analysis-Code\\F(x)_Equation\\daycung\\output_hn.txt", mode='w', encoding='utf-8')
             x0 = daycung(a, b, 2)
             print("Nghiệm của phương trình: ", x0[0])
             print("Số lần lặp: ", x0[1])

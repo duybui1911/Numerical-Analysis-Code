@@ -1,10 +1,14 @@
 import numpy as np 
 
+path = 'D:\\TLHT\\GTS-PPS\\codepython\\Tucode\\GTS\\Numerical-Analysis-Code\\Matrix_Equations\\gauss_JD\\'
+
+
 class Gauss_Jordan_Algorithms:
     np.set_printoptions(suppress=True, linewidth=np.inf, precision=10)
 
 
-    matrix = np.genfromtxt('GJ_input.txt', delimiter=' ') 
+    matrix = np.genfromtxt(path + 'GJ_input.txt', delimiter=' ')
+    A = matrix[:, :-1] #Lưu lại ma trận ban đầu để lát kiểm tra tính đúng của nghiệm
     index_row = []  # Khởi tạo mảng lưu các hàng của phần tử giải (theo thứ tự)
     index_column = []  # Khởi tạo mảng lưu các cột của phần tử giải (theo thứ tự)
     result = np.zeros(
@@ -46,9 +50,10 @@ class Gauss_Jordan_Algorithms:
             self.index_row.append(row_pivot_element)
             self.index_column.append(int(index_temp))
             """ In ra giá trị và vị trí phần tử giải"""
-            # print("Phan tu giai: ", round(matrix[index_row[-1]][index_column[-1]], 10))
-            # print("Vi tri: ", index_row[-1] + 1, index_column[-1] + 1)
-            # print()
+            print()
+            print("Phần tử giải: ", round(self.matrix[self.index_row[-1]][self.index_column[-1]], 10))
+            print("Vị trí: ", self.index_row[-1] + 1, self.index_column[-1] + 1)
+            print()
 
     def Gauss_Jordan_method(self):
         """Phương pháp Gauss - Jordan"""
@@ -68,7 +73,8 @@ class Gauss_Jordan_Algorithms:
         for i in range(len(self.index_row)):
             self.matrix[self.index_row[i]] = self.matrix[self.index_row[i]] / self.matrix[self.index_row[i]][
                 self.index_column[i]]
-        # print(self.matrix)
+        print("Ma trận sau khi chuẩn hóa hệ số: ")
+        print(self.matrix)
 
     def rank(self):
         """Tìm hạng của ma trận hệ số A và hạng của ma trận mở rộng"""
@@ -80,15 +86,15 @@ class Gauss_Jordan_Algorithms:
             if np.amax(abs(self.matrix[row, 0:len(self.matrix[0])])) > 0:
                 rank2 = rank2 + 1
         if rank1 < rank2:
-            # print("He PT vo nghiem!")
-            f=open("GJ_output.txt","w")
-            f.write("He PT vo nghiem!")
+            print("Hệ PT vô nghiệm...Niệm!")
+            f=open(path + 'GJ_output.txt',"w")
+            f.write("Hệ PT vô nghiệm...Niệm!")
             f.close()
         elif rank1 < (len(self.matrix[0]) - 1):
-            # print("He PT co vo so nghiem!")
+            print("Hệ PT có vô số nghiệm...Niệm!")
             self.display_solutions()
         else:
-            # print("He PT co nghiem duy nhat!")
+            print("Hệ PT có nghiệm duy nhất!")
             self.display_solutions()
             # solutions_checker()
 
@@ -107,30 +113,34 @@ class Gauss_Jordan_Algorithms:
                 self.result[column][column + 1] = 1
 
         # In ma trận result ra màn hình
-        # print(result)
+        print()
+        print("Nghiệm tìm được: ")
+        print(self.result[:,0])
 
         # Xuất kết quả ra file output.txt
-        np.savetxt('GJ_output.txt', self.result, fmt='%.5f')  # %.5f: lấy 5 chữ số sau dấu phẩy ghi vào file
+        np.savetxt(path + 'GJ_output.txt', self.result, fmt='%.5f')  # %.5f: lấy 5 chữ số sau dấu phẩy ghi vào file
 
     # Main program
     def main(self):
-        # print(matrix)
-        # print("- - - - - - - - - - - - - - - - - - - -")
-        # print()
+        print(self.matrix)
+        print("- - - - - - - - - - - - - - - - - - - -")
+        print()
         for i in range(0, min(len(self.matrix), len(self.matrix[0]))):
             self.Gauss_Jordan_method()
-            # print(matrix)
-            # print("- - - - - - - - - - - - - - - - - - - -")
+            print(self.matrix)
+            print("- - - - - - - - - - - - - - - - - - - -")
         # print("- - - - - Chuẩn hóa hệ số - - - - -")
         self.normalize_pivot_element()
-        # print("- - - - - Kết luận - - - - -")
+        print("- - - - - Kết luận - - - - -")
         self.rank()
+        print()
+        print("Kiểm tra nghiệm A*x = ", self.A@self.result[:,0].T)
 
 try:
     RUN = Gauss_Jordan_Algorithms()
     RUN.main()
 except:
-    f = open("GJ_output.txt", "w")
-    f.write("Da co loi xay ra!")
+    f = open(path + 'GJ_output.txt', "w")
+    f.write("Lỗi!")
     f.close()
 

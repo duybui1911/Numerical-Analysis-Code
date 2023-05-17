@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def gauss_elimination(A: np.matrix, ):
+def gauss_elimination(A: np.matrix):
     n = A.shape[0]
     p = -1
     for i in range(0, n - 1):
@@ -38,5 +38,9 @@ if __name__ == "__main__":
         A = np.loadtxt(file)
     print("Ma trận [A|b] ban đầu: \n", A)
     x = gauss_elimination(A)
+    print("---------------------------")
     print("Nghiệm của hệ: x = ", x)
+    print("---------------------------")
+    #print("Kiểm tra nghiệm A*x = ", A[:, :-1]@x.T)
+
 
