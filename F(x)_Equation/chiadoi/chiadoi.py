@@ -3,11 +3,6 @@ import math
 import matplotlib.pyplot as plt
 from numpy.lib import scimath
 
-#Thay đổi khoảng vẽ đồ thị tại đây
-left = 0
-right = 8
-
-
 num_decimal = 10   #Số chữ số thập phân hiển thị
 
 #Nhập phương trình cần giải

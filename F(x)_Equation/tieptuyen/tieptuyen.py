@@ -1,9 +1,9 @@
 import numpy as np
 import math
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 #Thay đổi khoảng vẽ đồ thị tại đây
-left = -10 
+left = 0
 right = 10
 
 num_decimal = 7  # Số chữ số thập phân xuất hiện trong output
@@ -14,7 +14,7 @@ eta = 1e-3
 
 
 def f(x):
-    return math.log(x) - 1
+    return np.log(x) - 1
 
 
 def df(x):
@@ -33,18 +33,18 @@ def dnf(x, deg):
     elif deg == 3:
         return (d2f(x + delta) - d2f(x - delta)) / (2 * delta)
 
-'''
+
 def show_fx():
-    plt.xlabel("Giá trị x biến thiên")
-    plt.ylabel("Giá trị y biến thiên")
+    plt.xlabel("x")
+    plt.ylabel("y")
     plt.title("Đồ thị hàm số của phương trình f(x) ")
-    x = np.linspace(left, right, 1000)
+    x = np.linspace(left, right, 100)
     plt.plot(x, f(x))
     plt.plot(0, 0, '+')
     plt.plot(0, )
     plt.grid()
     plt.show()
-'''
+
 
 def menu():
     print("")
@@ -151,7 +151,7 @@ def tieptuyen(left, right, num):
 
 
 if __name__ == "__main__":
-    #show_fx()
+    show_fx()
     print("Nhập khoảng tìm nghiệm: ")
     a = float(input("Nhập a: "))
     b = float(input("Nhập b: "))

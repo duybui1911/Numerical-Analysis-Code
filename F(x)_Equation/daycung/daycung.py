@@ -1,5 +1,5 @@
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 #Thay đổi khoảng vẽ đồ thị tại đây
 left = -5
@@ -29,7 +29,7 @@ def dnf(x, deg):
     elif deg == 2:
         return d2f(x)
 
-'''
+
 def show_fx():
     plt.xlabel("y")
     plt.ylabel("x")
@@ -40,7 +40,6 @@ def show_fx():
     plt.plot(0, )
     plt.grid()
     plt.show()
-'''
 
 def menu():
     print("")
@@ -137,7 +136,7 @@ def daycung(left, right, num):
 
 
 if __name__ == "__main__":
-    #show_fx()
+    show_fx()
     print("Nhập khoảng tìm nghiệm: ")
     a = float(input("Nhập a: "))
     b = float(input("Nhập b: "))
