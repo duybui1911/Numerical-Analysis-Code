@@ -15,6 +15,8 @@ def gauss_elimination(A: np.matrix):
             A[[p, i]] = A[[i, p]]
         for j in range(i + 1, n):
             A[j] = A[j] - (A[j, i] / A[i, i]) * A[i]
+        print("Bước thứ ", i+1)
+        print(A)
     print("Kết thúc quá trình đưa ma trận về dạng bậc thang: ")
     print("Ma trận [A|b] sau biến đổi: \n", A)
     if A[n - 1, n - 1] == 0:
@@ -41,6 +43,6 @@ if __name__ == "__main__":
     print("---------------------------")
     print("Nghiệm của hệ: x = ", x)
     print("---------------------------")
-    #print("Kiểm tra nghiệm A*x = ", A[:, :-1]@x.T)
+    print("Kiểm tra nghiệm A*x = ", A[:, :-1]@x.T)
 
 

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 left = -5
 right = 5
 
-num_decimal = 7  # Số chữ số thập phân xuất hiện trong output
+num_decimal = 15  # Số chữ số thập phân xuất hiện trong output
 
 
 delta = 1e-6

@@ -1,6 +1,4 @@
-import numpy as np
 import math
-import matplotlib.pyplot as plt
 from numpy.lib import scimath
 
 num_decimal = 10   #Số chữ số thập phân hiển thị

@@ -1,10 +1,6 @@
-#Nhập khoảng tìm cực đại, cực tiểu của hàm số
-a = 1 #cận trái
-b = 2 #cận phải
-
 
 delta = 1e-7
-eta = 1e-4
+eta = 1e-5
 
 def f(x):
     return 2*x**5 - 12*x**4 + 3*x**2 - 15
